@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import path
 from .views import RegisterView, UserInfoView, ResourceListCreateView
 from django.contrib.auth import views as auth_views
@@ -12,5 +13,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('user-info/', views.UserInfoView.as_view(), name='user_info'),
     path('resources/', views.ResourceListCreateView.as_view(), name='resources'),
-    path('api/logout/', LogoutView.as_view(), name='api_logout'),  # Ensure this is /api/logout/
+    path('api/logout/', LogoutView.as_view(), name='api_logout'),
 ]
