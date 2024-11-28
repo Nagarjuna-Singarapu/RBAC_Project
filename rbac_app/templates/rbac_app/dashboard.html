@@ -1,0 +1,26 @@
+{% extends 'rbac_app/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Dashboard</h2>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">User Details</h5>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Role:</strong> {{ user.role }}</p> <!-- Adjust based on your model -->
+    </div>
+</div>
+
+<h5 class="mt-4">Accessible Resources</h5>
+<ul class="list-group">
+    {% for resource in resources %}
+    <li class="list-group-item">{{ resource.name }} - {{ resource.description }}</li>
+    {% empty %}
+    <li class="list-group-item">No resources available for this role.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
